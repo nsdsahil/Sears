@@ -1,9 +1,15 @@
 const carouselImages=[
+    "https://www.sears.com/staticpage/content/sears/shc/en/homepage/images/021024_desktop_pres_v2.jpg",
     "https://www.sears.com/staticpage/content/sears/shc/en/homepage/images/082423_desktop_instock.jpg",
     "https://www.sears.com/staticpage/content/sears/shc/en/homepage/images/062223-desktop-newarrivals.jpg",
     "https://www.sears.com/staticpage/content/sears/shc/en/homepage/images/013024_desktop_Jewelry.jpg",
     "https://www.sears.com/staticpage/content/sears/shc/en/homepage/images/011624_desktop_HA.jpg"
 
+]
+const bannerImages=[
+    "https://statics.creativecdn.com/Jat833mg3AhZM26kdmAI/336x280.png",
+    "https://sin.creativecdn.com/images?id=092e61b33de828fbab5195bb2b49ac192a614ec7&w=250&h=250&o=NR5560DL01&fid=4Ub3VVPxkkuwnfIJodPp&f=3",
+    "https://sin.creativecdn.com/images?id=a26026dde34d9b3147fd6dbd325e63f420a97916&w=250&h=250&o=NP5560DL03&fid=4Ub3VVPxkkuwnfIJodPp&f=3"
 ]
 const categories=[
 
@@ -151,6 +157,7 @@ const promise=[
 export  {
     carouselImages,
     categories,
+    bannerImages,
     brands,
     promise 
 }

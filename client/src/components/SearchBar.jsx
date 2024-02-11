@@ -1,4 +1,5 @@
 import { Flex, Input, IconButton } from "@chakra-ui/react";
+import React from 'react'
 import { SearchIcon } from "@chakra-ui/icons";
 function SearchBar() {
     const color = {

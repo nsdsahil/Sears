@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Box, GridItem, Button, Heading } from "@chakra-ui/react";
+import { Grid, Box, GridItem,Text, Button, Heading } from "@chakra-ui/react";
 import { ShopNowButton } from "./ShopNow";
 
 /**
@@ -16,10 +16,10 @@ export const GridBanner = ({ heading }) => {
 	return (
 		<Box  >
 			<Heading
-				letterSpacing={"4px"}
+				letterSpacing={["2px", "3px", "3px", "4px", "4px"]}
 				marginBottom={"5%"}
 				textAlign={"center"}
-				size="2xl"
+				size={["md", "lg", "2xl", "2xl", "2xl"]}
 			>
 				{heading}
 			</Heading>
@@ -53,7 +53,7 @@ export const GridBanner = ({ heading }) => {
 					colSpan={3}
 				>
 					
-					<img width={'100%'} height={'100%'} src="https://www.sears.com//staticpage/content/sears/shc/en/homepage/images/Box-Jewelry-020224.jpg" alt="" />
+					<img width={'100%'} height={'100%'} src="https://www.sears.com//staticpage/content/sears/shc/en/homepage/images/021024-Box-Furniture.jpg" alt="" />
 					<p>
 						<span></span>
 						<span></span>
@@ -69,8 +69,14 @@ export const GridBanner = ({ heading }) => {
 					colSpan={3}
 
 				>
+					<Box position={"absolute"} top={["2","10","10","10","10"]}
+					 left={["2","10","10","10","10","10"]}   paddingLeft={2}>
+						<Text fontSize={"15px"} fontWeight={"bold"}>UP TO 50% OFF</Text>
+						<Text fontWeight={"bold"} fontSize={"30px"}>HOME APPLICANCES</Text>
+						<Text fontSize={"15px"} fontWeight={"bold"}>+FREE SHIPPING</Text>
+					</Box>
 					<Box>
-					<img width={'100%'} src="https://www.sears.com//staticpage/content/sears/shc/en/homepage/images/Box-Furniture2-020224.jpg" alt=""/>
+					<img width={'100%'} src="https://www.sears.com//staticpage/content/sears/shc/en/homepage/images/021024-Box2-SKA.jpg" alt=""/>
 					</Box>
 					<ShopNowButton/>
 				</GridItem>
@@ -79,8 +85,14 @@ export const GridBanner = ({ heading }) => {
 					colSpan={3}
 					
 				>
+					<Box position={"absolute"} top={["2","10","10","10","10"]}
+					 left={["2","10","10","10","10","10"]}  paddingLeft={2}>
+						<Text fontSize={"15px"} fontWeight={"bold"}>UP TO 50% OFF</Text>
+						<Text fontWeight={"bold"} fontSize={"30px"}>HOME FURNISHING</Text>
+						<Text fontSize={"15px"} fontWeight={"bold"}>+FREE SHIPPING</Text>
+					</Box>
 					<Box>
-					<img src="https://www.sears.com//staticpage/content/sears/shc/en/homepage/images/Box-Furniture2-020224.jpg" alt="" /></Box>
+					<img src="https://www.sears.com//staticpage/content/sears/shc/en/homepage/images/Box-Bath-020224.jpg" alt="" /></Box>
 					<ShopNowButton/>
 				</GridItem>
 			</Grid>

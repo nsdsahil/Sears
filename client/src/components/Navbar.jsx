@@ -153,7 +153,7 @@ function SearchBar() {
 	async function handleSubmit() {
 		console.log(searchItem)
 		await axios
-			.get("http://localhost:8080/products/search/" + searchItem)
+			.get("https://sears-40h2.onrender.com/products/search/" + searchItem)
 			.then((res) => {
 				console.log(res.data);
 				setProducts(res.data);
