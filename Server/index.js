@@ -10,8 +10,6 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 dotenv.config();
 
-const cookieParser = require("cookie-parser");
-
 app.use(
 	cors({
 		origin:"http://127.0.0.1:5173",
