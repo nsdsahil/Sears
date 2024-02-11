@@ -109,6 +109,11 @@ const Register = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		console.log(userDetails);
+		toast({
+			title: "Login",
+			description: "Processing",
+			status: "info",
+		})
 		await axios
 			.post("https://sears-40h2.onrender.com/user/register", userDetails, {
 				withCredentials: true,
@@ -149,7 +154,7 @@ const Register = () => {
 				boxShadow={
 					"rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;"
 				}
-				width={"40%"}
+				width={["80%","60%","50%","40%"]}
 				margin={"auto"}
 				marginBottom={"5%"}
 			>

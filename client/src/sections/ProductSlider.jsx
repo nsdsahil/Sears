@@ -74,7 +74,7 @@ const Product = ({ product }) => {
 			boxShadow={
 				"rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;"
 			}
-			height={"400PX"}
+			height={"420PX"}
 			overflow={"hidden"}
 			position={"relative"}
 		>
@@ -92,7 +92,7 @@ const Product = ({ product }) => {
 					alt="Image not found"	
 				/>
 			</Box>
-			<Box paddingLeft={2} key={product._id}>
+			<Box position={"absolute"} bottom={2} paddingLeft={2} key={product._id}>
 				<Text>Best Offer</Text>
 				<Text color="red">
 					{" "}

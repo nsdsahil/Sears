@@ -28,15 +28,15 @@ export const FlexBanner = (props) => {
 							left={["2", "10", "10", "10", "10", "10"]}
 							paddingLeft={2}
 						>
-							<Text fontSize={"15px"} fontWeight={"bold"}>
-								UP TO 50% OFF
-							</Text>
-							<Text fontWeight={"bold"} fontSize={"30px"}>
-								HOME APPLICANCES
-							</Text>
-							<Text fontSize={"15px"} fontWeight={"bold"}>
-								+FREE SHIPPING
-							</Text>
+							<Text  fontSize={["13px","15px","15px","15px","15px"]} fontWeight={"bold"}>
+							UP TO 50% OFF
+						</Text>
+						<Text fontWeight={"bold"} fontSize={["25px", "30px", "30px", "30px", "30px"]}>
+							TELEVISIONS 
+						</Text>
+						<Text fontSize={["13px","15px","15px","15px","15px"]} fontWeight={"bold"}>
+							+FREE SHIPPING
+						</Text>
 						</Box>
 						<ShopNowButton />
 					</Container>
@@ -58,15 +58,15 @@ export const FlexBanner = (props) => {
 							left={["2", "10", "10", "10", "10", "10"]}
 							paddingLeft={2}
 						>
-							<Text fontSize={"15px"} fontWeight={"bold"}>
-								UP TO 50% OFF
-							</Text>
-							<Text fontWeight={"bold"} fontSize={"30px"}>
-								HOME APPLICANCES
-							</Text>
-							<Text fontSize={"15px"} fontWeight={"bold"}>
-								+FREE SHIPPING
-							</Text>
+							<Text  fontSize={["13px","15px","15px","15px","15px"]} fontWeight={"bold"}>
+							UP TO 50% OFF
+						</Text>
+						<Text fontWeight={"bold"} fontSize={["20px", "30px", "30px", "30px", "30px"]}>
+							GAMING SETUPS	
+						</Text>
+						<Text fontSize={["13px","15px","15px","15px","15px"]} fontWeight={"bold"}>
+							+FREE SHIPPING
+						</Text>
 						</Box>
 						<ShopNowButton />
 					</Container>

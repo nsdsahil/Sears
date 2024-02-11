@@ -13,7 +13,7 @@ export const Categories = ({ categories, heading }) => {
     const navigate = useNavigate()
 	return (
 		<Box marginTop={"5%"} marginBottom={"5%"}>
-			<Heading letterSpacing={"2px"} margin={"2%"} textAlign={"center"}>
+			<Heading letterSpacing={"2px"} margin={"2%"} size={["md", "lg", "2xl", "2xl", "2xl"]}textAlign={"center"}>
 				{heading}{" "}
 			</Heading>
 

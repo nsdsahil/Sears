@@ -9,7 +9,7 @@ import React from 'react'
 
 export const Guide = ({docs,heading}) => {
   return(
-    <Box fontSize={['xs','sm','md','lg']} color={'gray'} borderTop={"1px solid black"} padding={5}>
+    <Box marginTop={'2%'} fontSize={['xs','sm','md','lg']} color={'gray'} borderTop={"1px solid gray"} padding={5}>
       <Heading color='gray.600'>{heading}</Heading>
       {docs.map((docs) =>(
         <Box margin={5} key={docs.id}>

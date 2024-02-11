@@ -17,9 +17,10 @@ export const GridBanner2 = ({ heading }) => {
 		<Box  >
 			<Heading
 				letterSpacing={"4px"}
+				marginTop={"1%"}
 				marginBottom={"5%"}
 				textAlign={"center"}
-				size="2xl"
+				size={["md", "lg", "2xl", "2xl", "2xl"]}
 			>
 				{heading}
 			</Heading>
@@ -69,9 +70,15 @@ export const GridBanner2 = ({ heading }) => {
 					<Box position={"relative"}>
 					<Box position={"absolute"} top={["2","10","10","10","10"]}
 					 left={["2","10","10","10","10","10"]}  paddingLeft={2}>
-						<Text fontSize={"15px"} fontWeight={"bold"}>UP TO 50% OFF</Text>
-						<Text fontWeight={"bold"} fontSize={"30px"}>POWER TOOLS</Text>
-						<Text fontSize={"15px"} fontWeight={"bold"}>+FREE SHIPPING</Text>
+						<Text  fontSize={["13px","15px","15px","15px","15px"]} fontWeight={"bold"}>
+							UP TO 50% OFF
+						</Text>
+						<Text fontWeight={"bold"} fontSize={["20px", "30px", "30px", "30px", "30px"]}>
+							POWER TOOLS
+						</Text>
+						<Text fontSize={["13px","15px","15px","15px","15px"]} fontWeight={"bold"}>
+							+FREE SHIPPING
+						</Text>
 					</Box>
 					<img width={'100%'} src="https://www.sears.com//staticpage/content/sears/shc/en/homepage/images/100621_BOX_Tools.jpg" alt=""/>
 					</Box>
@@ -84,9 +91,15 @@ export const GridBanner2 = ({ heading }) => {
 				>
 					<Box position={"absolute"} top={["2","10","10","10","10"]}
 					 left={["2","10","10","10","10","10"]}  paddingLeft={2}>
-						<Text fontSize={"15px"} fontWeight={"bold"}>UP TO 50% OFF</Text>
-						<Text fontWeight={"bold"} fontSize={"30px"}>GARDEN TOOLS</Text>
-						<Text fontSize={"15px"} fontWeight={"bold"}>+FREE SHIPPING</Text>
+						<Text  fontSize={["13px","15px","15px","15px","15px"]} fontWeight={"bold"}>
+							UP TO 50% OFF
+						</Text>
+						<Text fontWeight={"bold"} fontSize={["20px", "30px", "30px", "30px", "30px"]}>
+							GARDEN TOOLS	
+						</Text>
+						<Text fontSize={["13px","15px","15px","15px","15px"]} fontWeight={"bold"}>
+							+FREE SHIPPING
+						</Text>
 					</Box>
 					<Box>
 					<img src="https://www.sears.com//staticpage/content/sears/shc/en/homepage/images/030321_BOX_LG.jpg" alt="" /></Box>

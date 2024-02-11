@@ -27,6 +27,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContextProvider";
 import React from "react";
 function Login() {
+	const [loading, setLoading] = useState(false);
 	const { isLogin, setIsLogin } = useContext(AuthContext);
     
 	const [userDetails, setUserDetails] = useState({});
@@ -44,6 +45,11 @@ function Login() {
 	const handleSubmit = async (e) => {
 		console.log(userDetails);
 		axios.defaults.withCredentials = true;
+		toast({
+			title: "Login",
+			description: "Processing",
+			status: "info",
+		})
 		await axios
 			.post("https://sears-40h2.onrender.com/user/login", userDetails, {
 				withCredentials: true,
@@ -68,6 +74,7 @@ function Login() {
 				console.log(err);
 			});
 	};
+		
 	const color = {
 		primary: "#0948bb",
 		secondary: "white",
