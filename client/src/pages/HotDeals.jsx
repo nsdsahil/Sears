@@ -66,7 +66,7 @@ export const HotDeals = ({ productsData }) => {
 		async function getProducts() {
 			try {
 				setLoading(true);
-				const res = await fetch("http://localhost:8080/products/65c5d513216f075027acbf8e/hotDeals");
+				const res = await fetch("https://sears-40h2.onrender.com/products/65c5d513216f075027acbf8e/hotDeals");
 				const data = await res.json();
 				console.log(data);
 				setProducts(data.hotDeals);
@@ -81,7 +81,7 @@ export const HotDeals = ({ productsData }) => {
 
 	return (
 		<Box>
-			{loading && <Loading/>}
+			
 			<Flex justifyContent={"space-between"}>
 				{!isMobile && (
 					<Box
@@ -109,6 +109,7 @@ export const HotDeals = ({ productsData }) => {
 						<Heading size="md">Showing Results</Heading>
 						<SearchBar /> <SelectTag />{" "}
 					</Flex>
+					{loading ?<Loading/>:
 					<Grid
 						gap={4}
 						templateColumns={[
@@ -124,7 +125,7 @@ export const HotDeals = ({ productsData }) => {
 								<Product2 product={product}/>
 							</GridItem>
 						))}
-					</Grid>
+					</Grid>}
 				</Box>
 			</Flex>
 

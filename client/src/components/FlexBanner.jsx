@@ -1,4 +1,4 @@
-import { Box, Container, Flex, Heading } from "@chakra-ui/react";
+import { Box, Container,Text, Flex, Heading } from "@chakra-ui/react";
 import React from "react";
 import { ShopNowButton } from "./ShopNow";
 
@@ -10,38 +10,64 @@ import { ShopNowButton } from "./ShopNow";
 export const FlexBanner = (props) => {
 	return (
 		<Box>
-			<Box display={"flex"}  gap={5} flexWrap={"wrap"}>
-				<Box position={"relative"}
+			<Box display={"flex"} gap={5} flexWrap={"wrap"}>
+				<Box
+					position={"relative"}
 					height={"300px"}
-                    bgPos={"center"}
-                    bgSize={"cover"}
+					bgPos={"center"}
+					bgSize={"cover"}
 					backgroundImage={
 						"https://www.sears.com//staticpage/content/sears/shc/en/homepage/images/091823-Bigbox_tv.jpg"
 					}
 					width={["100%", "100%", "100%", "49%", "49%", "49%"]}
 				>
 					<Container>
-						<span></span>
-						<span></span>
-						<span></span>
+						<Box
+							position={"absolute"}
+							top={["2", "10", "10", "10", "10"]}
+							left={["2", "10", "10", "10", "10", "10"]}
+							paddingLeft={2}
+						>
+							<Text fontSize={"15px"} fontWeight={"bold"}>
+								UP TO 50% OFF
+							</Text>
+							<Text fontWeight={"bold"} fontSize={"30px"}>
+								HOME APPLICANCES
+							</Text>
+							<Text fontSize={"15px"} fontWeight={"bold"}>
+								+FREE SHIPPING
+							</Text>
+						</Box>
 						<ShopNowButton />
 					</Container>
 				</Box>
 				<Box
-                    position={"relative"}
+					position={"relative"}
 					backgroundImage={
 						"https://www.sears.com/staticpage/content/sears/shc/en/homepage/images/100621_BOX_Console_v4.jpeg"
 					}
-                    height={"300px"}
-                    bgPos={"center"}
-                    bgSize={"cover"}
-
+					height={"300px"}
+					bgPos={"center"}
+					bgSize={"cover"}
 					width={["100%", "100%", "100%", "49%", "49%", "49%"]}
 				>
 					<Container>
-						<span></span>
-						<span></span>
-						<span></span>
+						<Box
+							position={"absolute"}
+							top={["2", "10", "10", "10", "10"]}
+							left={["2", "10", "10", "10", "10", "10"]}
+							paddingLeft={2}
+						>
+							<Text fontSize={"15px"} fontWeight={"bold"}>
+								UP TO 50% OFF
+							</Text>
+							<Text fontWeight={"bold"} fontSize={"30px"}>
+								HOME APPLICANCES
+							</Text>
+							<Text fontSize={"15px"} fontWeight={"bold"}>
+								+FREE SHIPPING
+							</Text>
+						</Box>
 						<ShopNowButton />
 					</Container>
 				</Box>

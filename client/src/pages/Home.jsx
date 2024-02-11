@@ -12,6 +12,9 @@ import products from "../docs/products"
 import { Footer } from '../sections/footer'
 import { GridBanner2 } from '../components/GridBanner2'
 import ProductSlider2 from '../sections/ProductSlider2'
+import { bannerImages } from '../assets/image'
+import {Flex} from "@chakra-ui/react"
+import { AdvertiseBanner } from '../components/AdvertiseBanner'
 
 
 /**
@@ -53,9 +56,10 @@ const Home = () => {
     
   return(
     <>
+	<AdvertiseBanner/>
     <Carousel images={carouselImages} />
     <ProductSlider2 products={products2}/>
-    <Categories categories={categories} heading={"SHOP BY CATEGORY"}/>
+    <Categories   categories={categories} heading={"SHOP BY CATEGORY"}/>
     
     <GridBanner heading={"WORK IN SOME SAVINGS"}/>
     <Categories categories={brands} heading={"SHOP OUR TOP BRANDS "}/>

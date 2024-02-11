@@ -4,8 +4,10 @@ import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import ReactStars from "react-rating-stars-component";
 import { Box } from "@chakra-ui/react";
 import { render } from "react-dom";
-import { useBreakpointValue, Heading, Text, Button } from "@chakra-ui/react";
+import { useBreakpointValue, Heading,Image, Text, Button } from "@chakra-ui/react";
 import { useCart } from "react-use-cart";
+import { useNavigate } from "react-router-dom";
+
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -17,8 +19,10 @@ import "swiper/css/scrollbar";
  * @function ProductSlider
  **/
 const ProductSlider2 = ({ products }) => {
+	const navigate = useNavigate();
+
 	const breakpoint = useBreakpointValue({
-		base: 2,
+		base: 1,
 		sm: 3,
 		md: 5,
 		lg: 5,
@@ -55,6 +59,7 @@ export default ProductSlider2;
 
 const Product = ({ product }) => {
 	const [isAdded, setIsAdded] = React.useState(false);
+
 	const { addItem } = useCart();
 	const color = {
 		primary: "#0948bb",
@@ -71,13 +76,13 @@ const Product = ({ product }) => {
 			overflow={"hidden"}
 			position={"relative"}
 		>
-			<Box overflow={"hidden"} width={"100%"}>
-				<img
+			<Box margin={"auto"}	  overflow={"hidden"} width={["80%","100%", "100%", "100%", "100%"]}>
+				<Image
+					onClick={() => navigate(`/products`)}
+					width={'100%'}
 					display={"block"}
 					margin={"auto"}
-					width={"100%"}
-					maxWidth={"100%"}
-					maxheight={"100px"}
+					
 					src={product["productCardSlideOpts-images-src"]}
 					alt="Image not found"
 				/>

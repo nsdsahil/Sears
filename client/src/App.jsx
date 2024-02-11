@@ -2,6 +2,7 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import { Menubar } from "primereact/menubar";
+import React from "react";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import {Footer} from "./sections/footer";
@@ -40,6 +41,7 @@ function App() {
 			
 			</Box>
 			<Footer/>
+			
 		</>
 	);
 }
