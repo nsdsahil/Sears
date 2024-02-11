@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useState } from "react";
 import {
 	Box,
@@ -14,8 +14,6 @@ import {
 	useBreakpointValue,
 } from "@chakra-ui/react";
 import axios from "axios";
-import { useCart } from "react-use-cart";
-import {Product} from "../components/Product"
 import {
 	Accordion,
 	AccordionItem,
@@ -24,20 +22,17 @@ import {
 	AccordionIcon,
 } from "@chakra-ui/react";
 import PaginatedItems from "../components/Pagination";
-import { AuthContext } from "../context/AuthContextProvider";
-
+import products from "../docs/products";
 import ReactStars from "react-rating-stars-component";
 import SearchBar from "../components/SearchBar";
-import { Loading } from "../components/Loading";
 
 /**
  * @author
  * @function
  **/
 
-export const Products = ({ productsData }) => {
-	const [loading, setLoading] = useState(false);
-		const { addItem } = useCart();
+export const HotDeals = ({ productsData }) => {
+	const [products, setProducts] = useState([]);
 	const color = {
 		primary: "#0948bb",
 		secondary: "white",
@@ -52,11 +47,8 @@ export const Products = ({ productsData }) => {
 		xl: false,
 		xxl: false,
 	});
-	const [isAdded, setIsAdded] = useState(false);
-	
 	const [currentPage, setCurrentPage] = useState(1);
 	const [itemsPerPage, setItemsPerPage] = useState(12);
-	const {products, setProducts} = useContext(AuthContext);
 
 	// Calculate indexes for slicing the data array
 	const indexOfLastItem = currentPage * itemsPerPage;
@@ -64,29 +56,22 @@ export const Products = ({ productsData }) => {
 	const currentItems = products.slice(indexOfFirstItem, indexOfLastItem);
 	const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-
 	React.useEffect(() => {
-	
 		async function getProducts() {
 			try {
-				setLoading(true);
-				const res = await fetch("https://sears-40h2.onrender.com/products");
+				const res = await fetch("http://localhost:8080/products/65c5d513216f075027acbf8e/hotDeals");
 				const data = await res.json();
-				console.log(data);
-				setProducts(data);
+				console.log(res);
+				setProducts(data.hotDeals);
 			} catch (error) {
-
 				console.log(error);
-			}finally{
-				setLoading(false);
 			}
 		}
 		getProducts();
-	},[] );
+	});
 
 	return (
 		<Box>
-			
 			<Flex justifyContent={"space-between"}>
 				{!isMobile && (
 					<Box
@@ -114,7 +99,7 @@ export const Products = ({ productsData }) => {
 						<Heading size="md">Showing Results</Heading>
 						<SearchBar /> <SelectTag />{" "}
 					</Flex>
-					{loading ? <Loading/>:<Grid
+					<Grid
 						gap={4}
 						templateColumns={[
 							"repeat(1, 1fr)",
@@ -125,12 +110,36 @@ export const Products = ({ productsData }) => {
 						]}
 					>
 						{currentItems.map((product) => (
-							<GridItem key={product._id}>
-								<Product product={product}/>
+							<GridItem>
+								<Box maxWidth={"70%"}>
+									<img
+										width={"100%"}
+										src={product["image"]}
+										alt="Image not found"
+									/>
+								</Box>
+								<Box paddingLeft={2}>
+									<Text>{product[""]}</Text>
+									<Text color="red">
+										{" "}
+										<strike>{product["unmarkedPrice"]}</strike>
+									</Text>
+									<Text>{product["price"]}</Text>
+									<Heading size="xs">{product["title"]}</Heading>
+									<ReactStars
+										count={5}
+										value={product.rating}
+										edit={false}
+										size={24}
+										activeColor="#ffd700"
+									/>
+									<Button color={color.secondary} bgColor={color.primary}>
+										Add to cart
+									</Button>
+								</Box>
 							</GridItem>
-						))}	
-					</Grid>}
-					
+						))}
+					</Grid>
 				</Box>
 			</Flex>
 

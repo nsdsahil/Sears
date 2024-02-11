@@ -8,7 +8,7 @@ import { Menu, MenuButton, MenuList, MenuItem, MenuGroup, MenuDivider, Button } 
 
 export const Profile = (props) => {
   return(
-    <Menu>
+    <Menu zIndex={10}>
   <MenuButton  as={Button} colorScheme='#0948bb'>
     Profile 
   </MenuButton>
@@ -25,4 +25,4 @@ export const Profile = (props) => {
   </MenuList>
 </Menu>
    )
-  }
+}

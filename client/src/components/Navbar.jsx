@@ -1,17 +1,19 @@
-import React from "react";
-import Login from "../sections/Login";	
+import React, { useContext } from "react";
+import Login from "../sections/Login";
+
+import { Link } from "react-router-dom";
 
 import {
 	Box,
 	Flex,
 	Avatar,
-	Link,
 	HStack,
 	Button,
 	Input,
 	Text,
 	IconButton,
 	ButtonGroup,
+	MenuButton,
 	Menu,
 	MenuList,
 	MenuItem,
@@ -20,10 +22,15 @@ import {
 	useColorModeValue,
 	useBreakpointValue,
 	Stack,
+	useToast,
 } from "@chakra-ui/react";
+import axios from "axios";
 import { HamburgerIcon, CloseIcon, SearchIcon } from "@chakra-ui/icons";
 import { MdOutlineShoppingCart } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContextProvider";
 import { Profile } from "./Profile";
+import CartSection from "./CartSection";
 /**
  * @author Sahil Nishad
  * @function Navbar
@@ -35,6 +42,8 @@ const color = {
 	tertiary: "#41e0d0",
 };
 const Navbar = (props) => {
+	const toast = useToast();
+	const { isLogin, setIsLogin } = React.useContext(AuthContext);
 	const isMobile = useBreakpointValue({
 		base: true,
 		sm: true,
@@ -68,29 +77,37 @@ const Navbar = (props) => {
 						}
 						aria-label={"Open Menu"}
 						display={{ md: "none" }}
-						onClick={isMobile ? onClose : onOpen}
+						onClick={isOpen ? onClose : onOpen}
 					/>
-					<HStack width="100%" justifyContent={"space-around"} alignItems={"center"}>
-						<Box >
+					<HStack
+						width="100%"
+						justifyContent={"space-around"}
+						alignItems={"center"}
+					>
+						<Box as={Link} to="/">
 							<img
-							    width='100%'
+								width="100%"
 								src="https://www.sears.com/assets/images/logos/sears_logo.svg"
 								alt=""
 							/>
 						</Box>
-						<HStack  
+						<HStack
 							as={"nav"}
 							color={color.secondary}
 							spacing={5}
 							display={{ base: "none", md: "flex" }}
 						>
-							<Link color={color.secondary}> Products</Link>
-							<Link color={color.secondary}>Shop</Link>
-							<Link color={color.secondary}>Repairs</Link>
+							<Link to="/products" color={color.secondary}>
+								{" "}
+								Products
+							</Link>
+							<Shop />
+							<Link to="/hotdeals" color={color.secondary}>
+								Hot Deals
+							</Link>
 						</HStack>
 						{!isMobile && <SearchBar />}
 					</HStack>
-					
 
 					<Flex>
 						{!isMobile && (
@@ -102,18 +119,23 @@ const Navbar = (props) => {
 								My Orders
 							</Button>
 						)}
-						<Login/>
-						<Profile/>
-						<MdOutlineShoppingCart color="white" size="50px" />
+						{isLogin ? <Logout /> : <Login />}
+						<Profile />
+						<CartSection />
 					</Flex>
 				</Flex>
 				{isMobile && <SearchBar />}
 				{isOpen ? (
-					<Box pb={4} display={{ md: "none" }}>
+					<Box color={color.secondary} pb={4} display={{ md: "none" }}>
 						<Stack as={"nav"} spacing={4}>
-							<Link>Home</Link>
-							<Link>About</Link>
-							<Link>Contact</Link>
+							<Link to="/products" color={color.secondary}>
+								{" "}
+								Products
+							</Link>
+							<Link color={color.secondary}>Shop</Link>
+							<Link to="/hotdeals" color={color.secondary}>
+								Hot Deals
+							</Link>
 						</Stack>
 					</Box>
 				) : null}
@@ -125,12 +147,31 @@ const Navbar = (props) => {
 };
 
 function SearchBar() {
+	const navigate=useNavigate();
+	const{products,setProducts}=useContext(AuthContext)
+	const [searchItem, setSearchItem] = React.useState("");
+	async function handleSubmit() {
+		console.log(searchItem)
+		await axios
+			.get("http://localhost:8080/products/search/" + searchItem)
+			.then((res) => {
+				console.log(res.data);
+				setProducts(res.data);
+				navigate("/products");
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	}
 	return (
 		<Flex position={"relative"} width={"100%"} padding={5}>
 			<Input
 				borderRadius={"10"}
 				width={"100%"}
 				bg="white"
+				onChange={(e) => {
+					setSearchItem(e.target.value);
+				}}
 				variant="flushed"
 				paddingLeft="10px"
 				placeholder="Search"
@@ -141,6 +182,9 @@ function SearchBar() {
 				top={6}
 				right={6}
 				size={"sm"}
+				onClick={() => {
+					handleSubmit(searchItem);
+				}}
 				backgroundColor={color.tertiary}
 				aria-label="Search database"
 				icon={<SearchIcon />}
@@ -148,4 +192,76 @@ function SearchBar() {
 		</Flex>
 	);
 }
+
+function Shop() {
+	return (
+		<Menu>
+			<MenuButton color={color.secondary}>Shop</MenuButton>
+			<MenuList color={"black"}>
+				<MenuItem as="a" href="#">
+					<Link>Appliances</Link>
+				</MenuItem>
+				<MenuItem as="a" href="#">
+					<Link>Tools</Link>
+				</MenuItem>
+				<MenuItem as="a" href="#">
+					<Link>Clothing</Link>
+				</MenuItem>
+				<MenuItem as="a" href="#">
+					<Link>Lawn and Gardening</Link>
+				</MenuItem>
+				<MenuItem as="a" href="#">
+					<Link>Tv and Technologies</Link>
+				</MenuItem>
+			</MenuList>
+		</Menu>
+	);
+}
+
+const Logout = () => {
+	const { setIsLogin } = useContext(AuthContext);
+	const toast = useToast();
+	const handleClick = async () => {
+		await axios
+			.get("https://sears-40h2.onrender.com/user/logout", {
+				withCredentials: true,
+			})
+			.then((res) => {
+				if (res.data.msg == "logout successful") {
+					toast({
+						title: res.msg,
+						description: "You are logged out",
+						status: "success",
+					});
+					setIsLogin(false);
+				} else {
+					toast({
+						title: res.msg,
+						description: res.data.msg,
+						status: "error",
+					});
+				}
+			})
+			.catch((err) => {
+				toast({
+					title: err.msg,
+					description: "try again",
+					status: "error",
+				});
+				console.log(err);
+			});
+	};
+	return (
+		<>
+			<Button
+				backgroundColor={color.primary}
+				color={color.secondary}
+				onClick={handleClick}
+			>
+				Logout
+			</Button>
+		</>
+	);
+};
+
 export default Navbar;

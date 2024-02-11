@@ -13,6 +13,7 @@ const Carousel
  = ({images}) => {
   return(
     <Swiper
+       style={{zIndex: -100}}
       // install Swiper modules
       modules={[Navigation, Pagination, Scrollbar, A11y]}
       spaceBetween={50}
@@ -24,7 +25,7 @@ const Carousel
     >
         {
             images.map((image) => (
-                <SwiperSlide><img src={image} alt="carousel" /></SwiperSlide>
+                <SwiperSlide zIndex={-100}><img src={image} alt="carousel" /></SwiperSlide>
             ))
         }
     </Swiper>

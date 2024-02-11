@@ -6,10 +6,14 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import {Footer} from "./sections/footer";
 import { Box } from "@chakra-ui/react";
+
 import { Route, Routes } from "react-router-dom";
 import {Products} from "./pages/Products";	
 import products from "./docs/products";
-
+import {Login} from "./pages/Login";	
+import Register from "./pages/Register";
+import { HotDeals } from "./pages/HotDeals";
+import Verify from "./pages/Verify";
 function App() {
 	return (
 		<>
@@ -27,8 +31,13 @@ function App() {
 			<Routes>
 				<Route path="/" element={<Home/>}/>
 			    <Route path="/products" element={<Products productsData={products} />}/>
-			</Routes>
-
+				<Route path="/login" element={<Login/>}/>
+				<Route path="/register" element={<Register/>}/>
+				<Route path="/hotdeals" element={<HotDeals/>}/>
+				<Route path="/verify" element={<Verify/>}/>
+				
+			</Routes>	
+			
 			</Box>
 			<Footer/>
 		</>
