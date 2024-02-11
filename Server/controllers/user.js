@@ -49,10 +49,8 @@ UserRouter.post("/register", async (req, res) => {
 			});
 			await userTemp.save();
 			let apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
-
 			let apiKey = apiInstance.authentications["apiKey"];
-			apiKey.apiKey =
-				"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";
+			apiKey.apiKey ="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";
 
 			let sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
 
@@ -116,9 +114,15 @@ UserRouter.post("/verify", async (req, res) => {
 					password: hasedPassword,
 				});
 				await user.save();
+				await UserTempModel.deleteOne({ email: findingUser.email });
 				console.log("user registered")
 				res.status(200).send({
 					msg: "user registered",
+				});
+			}
+			else {
+				throw new Error({
+					msg: "wrong otp",
 				});
 			}
 		}

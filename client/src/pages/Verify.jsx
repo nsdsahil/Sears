@@ -55,9 +55,9 @@ const verify = (props) => {
 			navigate("/");
 		} catch (err) {
 			toast({
-				title: "Login failed",
+				title: err.msg,
 				description: "try again",
-				status: "error",
+				status: "error",	
 			});
 			console.error(err);
 		}
