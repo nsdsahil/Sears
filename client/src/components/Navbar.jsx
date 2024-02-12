@@ -198,20 +198,20 @@ function Shop() {
 		<Menu>
 			<MenuButton color={color.secondary}>Shop</MenuButton>
 			<MenuList color={"black"}>
-				<MenuItem as="a" href="#">
-					<Link>Appliances</Link>
+				<MenuItem as="a" >
+					<Link to='/products'>Appliances</Link>
 				</MenuItem>
-				<MenuItem as="a" href="#">
-					<Link>Tools</Link>
+				<MenuItem as="a" >
+					<Link to='/products'>Tools</Link>
 				</MenuItem>
-				<MenuItem as="a" href="#">
-					<Link>Clothing</Link>
+				<MenuItem as="a" >
+					<Link to='/products'>Clothing</Link>
 				</MenuItem>
-				<MenuItem as="a" href="#">
-					<Link>Lawn and Gardening</Link>
+				<MenuItem as="a" >
+					<Link to='/products'>Lawn and Gardening</Link>
 				</MenuItem>
-				<MenuItem as="a" href="#">
-					<Link>Tv and Technologies</Link>
+				<MenuItem as="a" >
+					<Link to='/products'>Tv and Technologies</Link>
 				</MenuItem>
 			</MenuList>
 		</Menu>

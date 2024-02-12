@@ -139,7 +139,7 @@ export const HotDeals = ({ productsData }) => {
 			<Flex
 				padding={2}
 				margin={"auto"}
-				width={"20%"}
+				width={["100%", "30%", "30%", "30%"]}
 				alignItems={"center"}
 				justifyContent={"space-between"}
 			>
