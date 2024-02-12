@@ -19,8 +19,9 @@ Sears is a modern and sophisticated ecommerce platform built using the MERN stac
 
 ## Screenshots
 
-![Screenshot 1](screenshot1.png)
-![Screenshot 2](screenshot2.png)
+
+![Screenshot 1](<client/src/assets/sears-screenshots/Screenshot 2024-02-12 231550.png>)
+![Screenshot 2](<client/src/assets/sears-screenshots/Screenshot 2024-02-12 231858.png>)
 
 # 💻 Tech Stack
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) 
