@@ -84,7 +84,7 @@ UserRouter.post("/verify", async (req, res) => {
 				message: "user not found",
 			});
 		} else {
-			if (findingUser.otp == otp) {
+			if (parseInt(findingUser.otp) == otp) {
 				console.log("otp matched")
 				const hasedPassword = await bcrypt.hash(findingUser.password, 10);
 				const user = new UserModel({
