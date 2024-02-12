@@ -15,7 +15,7 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 import { useCart } from "react-use-cart";
-import {Product} from "../components/Product"
+import { Product } from "../components/Product";
 import {
 	Accordion,
 	AccordionItem,
@@ -37,7 +37,7 @@ import { Loading } from "../components/Loading";
 
 export const Products = ({ productsData }) => {
 	const [loading, setLoading] = useState(false);
-		const { addItem } = useCart();
+	const { addItem } = useCart();
 	const color = {
 		primary: "#0948bb",
 		secondary: "white",
@@ -53,10 +53,10 @@ export const Products = ({ productsData }) => {
 		xxl: false,
 	});
 	const [isAdded, setIsAdded] = useState(false);
-	
+
 	const [currentPage, setCurrentPage] = useState(1);
 	const [itemsPerPage, setItemsPerPage] = useState(12);
-	const {products, setProducts} = useContext(AuthContext);
+	const { products, setProducts } = useContext(AuthContext);
 
 	// Calculate indexes for slicing the data array
 	const indexOfLastItem = currentPage * itemsPerPage;
@@ -64,9 +64,9 @@ export const Products = ({ productsData }) => {
 	const currentItems = products.slice(indexOfFirstItem, indexOfLastItem);
 	const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
+	
 
 	React.useEffect(() => {
-	
 		async function getProducts() {
 			try {
 				setLoading(true);
@@ -75,18 +75,16 @@ export const Products = ({ productsData }) => {
 				console.log(data);
 				setProducts(data);
 			} catch (error) {
-
 				console.log(error);
-			}finally{
+			} finally {
 				setLoading(false);
 			}
 		}
 		getProducts();
-	},[] );
+	}, []);
 
 	return (
 		<Box>
-			
 			<Flex justifyContent={"space-between"}>
 				{!isMobile && (
 					<Box
@@ -114,30 +112,33 @@ export const Products = ({ productsData }) => {
 						<Heading size="md">Showing Results</Heading>
 						<SearchBar /> <SelectTag />{" "}
 					</Flex>
-					{loading ? <Loading/>:<Grid
-						gap={4}
-						templateColumns={[
-							"repeat(1, 1fr)",
-							"repeat(2, 1fr)",
-							"repeat(3, 1fr)",
-							"repeat(4, 1fr)",
-							"repeat(4, 1fr)",
-						]}
-					>
-						{currentItems.map((product) => (
-							<GridItem key={product._id}>
-								<Product product={product}/>
-							</GridItem>
-						))}	
-					</Grid>}
-					
+					{loading ? (
+						<Loading />
+					) : (
+						<Grid
+							gap={4}
+							templateColumns={[
+								"repeat(1, 1fr)",
+								"repeat(2, 1fr)",
+								"repeat(3, 1fr)",
+								"repeat(4, 1fr)",
+								"repeat(4, 1fr)",
+							]}
+						>
+							{currentItems.map((product) => (
+								<GridItem key={product._id}>
+									<Product product={product} />
+								</GridItem>
+							))}
+						</Grid>
+					)}
 				</Box>
 			</Flex>
 
 			<Flex
 				padding={2}
 				margin={"auto"}
-				width={"20%"}
+				width={["100%", "30%", "30%", "30%"]}
 				alignItems={"center"}
 				justifyContent={"space-between"}
 			>
@@ -163,10 +164,34 @@ export const Products = ({ productsData }) => {
 	);
 };
 const SelectTag = () => {
+	const [value,setValue]=React.useState('')
+	const {products,setProducts}=useContext(AuthContext)
+
+
+	const handleSelect = (e) => {
+		setValue(e.target.value)
+		console.log(value)
+		if(value=="high-low"){
+			const sortedData = [...products]
+			.sort(
+				(a, b) =>
+					parseInt(a.price.substring(2))-parseInt(b.price.substring(2))
+			);
+			setProducts(sortedData);
+		}else{
+			const sortedData = [...products]
+			.sort(
+				(a, b) =>
+					parseInt(b.price.substring(1))-parseInt(a.price.substring(1))
+			);
+			setProducts(sortedData);
+		}	
+	};
+	
 	return (
-		<Select placeholder="Recommended">
-			<option value="high-low">Prices Low to High</option>
-			<option value="low-high">Prices High to Low</option>
+		<Select onChange={handleSelect} placeholder="Recommended">
+			<option  value="high-low">Prices Low to High</option>
+			<option  value="low-high">Prices High to Low</option>
 		</Select>
 	);
 };

@@ -56,7 +56,7 @@ const Navbar = (props) => {
 	const { isOpen, onOpen, onClose } = useDisclosure();
 	return (
 		<>
-			<Box bg={color.primary} px={4}>
+			<Box zIndex={"100"} position={'sticky'} top={0} bg={color.primary} px={4}>
 				<Flex
 					h={16}
 					padding={2}

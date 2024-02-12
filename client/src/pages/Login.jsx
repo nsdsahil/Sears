@@ -7,8 +7,13 @@ import {
 	FormHelperText,
 	useToast,
 	FormErrorMessage,
+
 } from "@chakra-ui/react";
+import {useContext} from "react"
+import { AuthContext } from "../context/AuthContextProvider";
+
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 /**
  * @author
  * @function Login
@@ -17,6 +22,9 @@ import axios from "axios";
 export const Login = (props) => {
 	const [userDetails, setUserDetails] = React.useState({});
 	const toast = useToast();
+	const {setIsLogin}=useContext(AuthContext);
+	const navigate=useNavigate()
+	
 
 	const handlechange = (e) => {
 		const { name, value } = e.target;
@@ -27,32 +35,36 @@ export const Login = (props) => {
 	};
 
 	const handleSubmit = async (e) => {
-		e.preventDefault();
 		console.log(userDetails);
-
-		try {
-			const res = await axios.post(
-				"https://sears-40h2.onrender.com/user/login",
-				userDetails,
-				{ withCredentials: true }
-			);
-			toast({
-				title: "Login",
-				description: "You are logged in",
-				status: "success",
+		axios.defaults.withCredentials = true;
+		toast({
+			title: "Login",
+			description: "Processing",
+			status: "info",
+		})
+		await axios
+			.post("https://sears-40h2.onrender.com/user/login", userDetails, {
+				withCredentials: true,
+			})
+			.then((res) => {
+				toast({
+					title: "Login",
+					description: "You are logged in",
+					status: "success",
+				});
+				setIsLogin(true);
+				console.log(res.data);
+				//navigate to home
+				navigate("/");
+			})
+			.catch((err) => {
+				toast({
+					title: "Login failed",
+					description: "try again",
+					status: "error",
+				});
+				console.log(err);
 			});
-			setIsLogin(true);
-			console.log(res.data);
-			// Navigate to home
-			navigate("/");
-		} catch (err) {
-			toast({
-				title: "Login failed",
-				description: "try again",
-				status: "error",
-			});
-			console.error(err);
-		}
 	};
 	const color = {
 		primary: "#0948bb",

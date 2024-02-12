@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
 import {
 	Box,
@@ -28,6 +28,8 @@ import SearchBar from "../components/SearchBar";
 import { useCart } from "react-use-cart";
 import {Product2} from "../components/Product2"
 import { Loading } from "../components/Loading";
+import { AuthContext } from "../context/AuthContextProvider";
+import { useNavigate } from "react-router-dom";
 
 /**
  * @author
@@ -61,7 +63,12 @@ export const HotDeals = ({ productsData }) => {
 	const currentItems = products.slice(indexOfFirstItem, indexOfLastItem);
 	const paginate = (pageNumber) => setCurrentPage(pageNumber);
     const [isAdded, setIsAdded] = useState(false);
+	const {isLogin,setIsLogin}=useContext(AuthContext)
+	const navigate=useNavigate()
+	{!isLogin && navigate("/login")}
+
 	React.useEffect(() => {
+		
 
 		async function getProducts() {
 			try {
