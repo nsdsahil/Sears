@@ -73,7 +73,10 @@ export const HotDeals = ({ productsData }) => {
 		async function getProducts() {
 			try {
 				setLoading(true);
-				const res = await fetch("https://sears-40h2.onrender.com/products/65c5d513216f075027acbf8e/hotDeals");
+				const res = await fetch("https://sears-40h2.onrender.com/products/65c5d513216f075027acbf8e/hotDeals",{
+					method:"GET",
+					credentials:"include"
+				});
 				const data = await res.json();
 				console.log(data);
 				setProducts(data.hotDeals);

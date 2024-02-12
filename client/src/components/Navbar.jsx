@@ -240,6 +240,7 @@ const Logout = () => {
 						description: res.data.msg,
 						status: "error",
 					});
+					setIsLogin(false);
 				}
 			})
 			.catch((err) => {

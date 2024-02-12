@@ -39,8 +39,7 @@ const verify = (props) => {
 		})
 
 		try {
-			const res = await axios.post(
-				"https://sears-40h2.onrender.com/user/verify",
+			const res = await axios.post("https://sears-40h2.onrender.com/user/verify",
 				TempUserDetails,
 				{ withCredentials: true }
 			);
