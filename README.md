@@ -31,13 +31,6 @@ Sears is a modern and sophisticated ecommerce platform built using the MERN stac
 ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
 ![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=JSON%20web%20tokens&logoColor=white)
 
-## Screenshots
-
-
-![Screenshot 1](<client/src/assets/sears-screenshots/Screenshot 2024-02-12 231550.png>)
-![Screenshot 2](<client/src/assets/sears-screenshots/Screenshot 2024-02-12 231858.png>)
-
-
 
 ## Screenshots
 
