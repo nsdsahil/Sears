@@ -119,7 +119,7 @@ const Register = () => {
 			})
 			.then((res) => {
 				console.log(res.data);
-				if (res.data.message == "otp sent") {
+				if (res.data.msg == "otp sent") {
 					toast({
 						title: "otp sent",
 						description: "please verify otp",
