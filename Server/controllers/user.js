@@ -74,17 +74,20 @@ UserRouter.post("/register", async (req, res) => {
 					console.log(
 						"API called successfully. Returned data: " + JSON.stringify(data)
 					);
-				},
-				function (error) {
-					console.error(error);
 					return res.status(200).send({
-						message: "failed to send otp",
+						msg: "otp sent",
+						
+					})
+				},
+				async function (error) {
+					console.log('failed to send otp')
+					await UserTempModel.deleteOne({email})
+					return res.status(200).send({
+						msg: "failed to send otp",
 					})
 				}
 			);
-			res.status(200).send({
-				message: "otp sent",
-			});
+			
 		}
 	} catch (error) {
 		res.status(400).send({
