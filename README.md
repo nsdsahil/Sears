@@ -39,6 +39,14 @@ Sears is a modern and sophisticated ecommerce platform built using the MERN stac
 
 
 
+## Screenshots
+
+
+![Screenshot 1](<client/src/assets/sears-screenshots/Screenshot 2024-02-12 231550.png>)
+![Screenshot 2](<client/src/assets/sears-screenshots/Screenshot 2024-02-12 231858.png>)
+
+
+
 ## Installation
 
 To run Sears locally, follow these steps:
