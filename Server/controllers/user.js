@@ -50,7 +50,7 @@ UserRouter.post("/register", async (req, res) => {
 			await userTemp.save();
 			let apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
 			let apiKey = apiInstance.authentications["apiKey"];
-			apiKey.apiKey ="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";
+			apiKey.apiKey="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";
 
 			let sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
 
