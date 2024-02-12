@@ -17,12 +17,6 @@ Sears is a modern and sophisticated ecommerce platform built using the MERN stac
 - **Reviews and Ratings**: Enable customers to leave feedback and ratings for products.
 - **Admin Dashboard**: Comprehensive dashboard for monitoring sales, inventory, and user activity.
 
-## Screenshots
-
-
-![Screenshot 1](<client/src/assets/sears-screenshots/Screenshot 2024-02-12 231550.png>)
-![Screenshot 2](<client/src/assets/sears-screenshots/Screenshot 2024-02-12 231858.png>)
-
 # 💻 Tech Stack
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) 
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) 
@@ -36,6 +30,13 @@ Sears is a modern and sophisticated ecommerce platform built using the MERN stac
 ![Express](https://img.shields.io/badge/Express%20js-000000?style=for-the-badge&logo=express&logoColor=white)
 ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
 ![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=JSON%20web%20tokens&logoColor=white)
+
+## Screenshots
+
+
+![Screenshot 1](<client/src/assets/sears-screenshots/Screenshot 2024-02-12 231550.png>)
+![Screenshot 2](<client/src/assets/sears-screenshots/Screenshot 2024-02-12 231858.png>)
+
 
 
 ## Installation
@@ -59,6 +60,14 @@ To run Sears locally, follow these steps:
 - Add products to your cart and proceed to checkout.
 - Make secure payments using integrated payment gateways.
 - Track your orders and manage your account through the user dashboard.
+
+## Features Screenshot
+![alt text](<client/src/assets/sears-screenshots/Screenshot 2024-02-12 232019.png>)
+![alt text](<client/src/assets/sears-screenshots/Screenshot 2024-02-12 232019.png>)
+![alt text](<client/src/assets/sears-screenshots/Screenshot 2024-02-12 232043.png>)
+![alt text](<client/src/assets/sears-screenshots/Screenshot 2024-02-12 232123.png>)
+![alt text](<client/src/assets/sears-screenshots/Screenshot 2024-02-12 232123.png>)
+![alt text](<client/src/assets/sears-screenshots/Screenshot 2024-02-12 232155.png>)
 
 ## Contributing
 
