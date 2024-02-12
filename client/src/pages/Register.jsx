@@ -75,8 +75,7 @@ const Register = () => {
 		console.log(TempUserDetails);
 
 		try {
-			const res = await axios.post(
-				"http://localhost:8080/user/verify",
+			const res = await axios.post("https://sears-40h2.onrender.com/user/verify",
 				TempUserDetails,
 				{ withCredentials: true }
 			);

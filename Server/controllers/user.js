@@ -1,5 +1,5 @@
 // making a strong user controller that will have login logout and register?
-
+const nodemailer = require("nodemailer");
 const express = require("express");
 const User = require("../models/user.model");
 const bcrypt = require("bcrypt");
@@ -13,6 +13,15 @@ const auth = require("../middlewares/auth.middleware");
 const dotenv = require("dotenv");
 dotenv.config();
 
+const transporter = nodemailer.createTransport({
+	service: "gmail",
+	auth: {
+	  user: "sahilroyal91@gmail.com",
+	  pass: "ybtwdogzakknnuja",
+	},
+  });
+
+  
 const UserRouter = express.Router();
 
 UserRouter.get("/", async (req, res) => {
@@ -48,49 +57,18 @@ UserRouter.post("/register", async (req, res) => {
 				password,
 			});
 			await userTemp.save();
-			let apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
-			let apiKey = apiInstance.authentications["apiKey"];
-			apiKey.apiKey="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";
-
-			let sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
-
-			sendSmtpEmail.subject = "My {{params.subject}}";
-			sendSmtpEmail.htmlContent =
-				"<html><body><h1>your verification OTP is  {{params.parameter}}</h1></body></html>";
-			sendSmtpEmail.sender = { name: "Sears", email: "sahil@domain.com" };
-			sendSmtpEmail.to = [{ email: email, name: name }];
-			sendSmtpEmail.cc = [
-				{ email: "example2@example2.com", name: "Janice Doe" },
-			];
-			sendSmtpEmail.bcc = [{ name: "John Doe", email: "example@example.com" }];
-			sendSmtpEmail.replyTo = { email: "replyto@domain.com", name: "John Doe" };
-			sendSmtpEmail.headers = { "Some-Custom-Name": "unique-id-1234" };
-			sendSmtpEmail.params = {
-				parameter: otp,
-				subject: "OTP for verification",
-			};
-			apiInstance.sendTransacEmail(sendSmtpEmail).then(
-				function (data) {
-					console.log(
-						"API called successfully. Returned data: " + JSON.stringify(data)
-					);
-					return res.status(200).send({
-						msg: "otp sent",
-						
-					})
-				},
-				async function (error) {
-					console.log('failed to send otp')
-					await UserTempModel.deleteOne({email})
-					return res.status(200).send({
-						msg: "failed to send otp",
-					})
-				}
-			);
+			const mailOptions = {
+				from: "sahilroyal91@gmail.com",
+				to: email,
+				subject: "OTP Verification",
+				text: `Your OTP for email verification is: ${otp}`,
+			  }
 			
+			  await transporter.sendMail(mailOptions);
+			  res.status(200).send({msg:'otp sent'})
 		}
-	} catch (error) {
-		res.status(400).send({
+	} catch (error) {	
+		res.status(200).send({
 			message: error.message,
 		});
 	}
