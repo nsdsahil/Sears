@@ -43,15 +43,22 @@ const verify = (props) => {
 				TempUserDetails,
 				{ withCredentials: true }
 			);
-			toast({
-				title: "Login",
-				description: "You are logged in",
-				status: "success",
-			});
-			setIsLogin(true);
-			console.log(res.data);
-			// Navigate to home
-			navigate("/");
+			if(res.data.msg=="user registered"){
+				toast({
+					title: "user registered",
+					description: "login now",
+					status: "success",
+				});
+				navigate("/login");
+			}
+			else{
+				toast({
+					title: res.data.msg,
+					description: "Verifying email",
+					status: "error",
+				})
+			}
+			
 		} catch (err) {
 			toast({
 				title: err.msg,

@@ -58,7 +58,8 @@ const Home = () => {
     <>
 	<AdvertiseBanner/>
     <Carousel images={carouselImages} />
-    <ProductSlider2 products={products2}/>
+	<ProductSlider products={products}/>
+    
     <Categories   categories={categories} heading={"SHOP BY CATEGORY"}/>
     
     <GridBanner heading={"WORK IN SOME SAVINGS"}/>
@@ -68,7 +69,8 @@ const Home = () => {
     <Categories categories={promise} heading={"OUR APPlIANCES PROMISE"}/>
     <FlexBanner/>
     <Guide heading={"Sears Guide"} docs={guide}/>
-    <ProductSlider products={products}/>
+	<ProductSlider2 products={products2}/>
+    
     
     </>
    )

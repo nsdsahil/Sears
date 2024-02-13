@@ -162,6 +162,7 @@ UserRouter.post("/login", async (req, res) => {
 UserRouter.get("/logout", auth, async (req, res) => {
 	const token = req.cookies.token;
 	const refreshToken = req.cookies.refreshToken;
+	console.log("logout sucessfully")
 	try {
 		const blacklist = new BlacklistTokenModel({
 			token,
