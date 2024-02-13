@@ -1,5 +1,6 @@
 const Express = require("express");
 const Product = require("../models/products.model");
+const auth = require("../middlewares/auth.middleware");
 
 const ProductRouter = Express.Router();
 
@@ -13,7 +14,7 @@ ProductRouter.get("/", async (req, res) => {
 		});
 	}
 });
-ProductRouter.get("/:productId/hotDeals", async (req, res) => {
+ProductRouter.get("/:productId/hotDeals",auth, async (req, res) => {
 	try {
 		const productId = req.params.productId;
 		const product = await Product.findById(productId);
