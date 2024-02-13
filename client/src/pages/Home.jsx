@@ -28,7 +28,7 @@ const Home = () => {
   React.useEffect(() => {
 		async function getProducts() {
 			try {
-				const res = await fetch("https://sears-40h2.onrender.com/products/65c5d513216f075027acbf8e/hotDeals");
+				const res = await fetch("https://sears-40h2.onrender.com/products/65c5d513216f075027acbf8e/tvElectronics");
 				const data = await res.json();
 				console.log(res);
 				setProducts(data.hotDeals);
@@ -41,7 +41,7 @@ const Home = () => {
   React.useEffect(() => {
 		async function getProducts() {
 			try {
-				const res = await fetch("https://sears-40h2.onrender.com/products/65c63744c69908f6bf402bb1/hotDeals");
+				const res = await fetch("https://sears-40h2.onrender.com/products/65c63744c69908f6bf402bb1/tvElectronics");
 				const data = await res.json();
 				console.log(res);
 				setProducts2(data.tvAndElectronics);
