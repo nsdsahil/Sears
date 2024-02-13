@@ -5,11 +5,13 @@ import {
 	FormLabel,
 	Input,
 	FormHelperText,
+	Text,
 	useToast,
+	Button,
 	FormErrorMessage,
-
 } from "@chakra-ui/react";
-import {useContext} from "react"
+import { useContext } from "react";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContextProvider";
 
 import axios from "axios";
@@ -22,9 +24,8 @@ import { useNavigate } from "react-router-dom";
 export const Login = (props) => {
 	const [userDetails, setUserDetails] = React.useState({});
 	const toast = useToast();
-	const {setIsLogin}=useContext(AuthContext);
-	const navigate=useNavigate()
-	
+	const { setIsLogin } = useContext(AuthContext);
+	const navigate = useNavigate();
 
 	const handlechange = (e) => {
 		const { name, value } = e.target;
@@ -41,7 +42,7 @@ export const Login = (props) => {
 			title: "Login",
 			description: "Processing",
 			status: "info",
-		})
+		});
 		await axios
 			.post("https://sears-40h2.onrender.com/user/login", userDetails, {
 				withCredentials: true,
@@ -113,6 +114,20 @@ export const Login = (props) => {
 					type="submit"
 					onClick={(e) => handleSubmit(e)}
 				/>
+				<Text>
+					By signing in, I agree to the Shop Your Way℠ Program Terms , and the
+					Sears.com Terms of Use and Privacy Policy.
+				</Text>
+				<Text>
+					New user?{" "}
+					<Text as={Link} color={color.tertiary}>
+						<Link to="/register">
+							<Button bgColor={color.primary}color="white">
+								Create an account
+							</Button>
+						</Link>
+					</Text>
+				</Text>
 			</FormControl>
 		</Box>
 	);
