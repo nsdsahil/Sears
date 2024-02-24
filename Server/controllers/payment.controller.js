@@ -2,7 +2,7 @@ const dotenv = require("dotenv")
 dotenv.config()
 const crypto=require("crypto");
 const Razorpay = require("razorpay");
-const { OrderModel } = require("../models/order.models");
+const OrderModel  = require("../models/order.models");
 const express= require("express")
 
 const paymentRouter = express.Router();
