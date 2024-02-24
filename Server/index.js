@@ -5,6 +5,7 @@ const cors = require("cors");
 const UserRouter = require("./controllers/user");
 const cookieParser = require("cookie-parser");
 const PORT=process.env.PORT
+const paymentRouter = require("./controllers/payment.controller");
 
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
@@ -28,6 +29,7 @@ app.get("/", (req, res) => {
 	}
 });
 app.use("/products", ProductRouter);
+app.use("/payment",paymentRouter)
 app.listen(PORT, () => {
 	try {
 		console.log(`Server is running on port ${PORT}`);

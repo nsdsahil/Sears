@@ -28,12 +28,12 @@ function CartSection() {
 						top={-1}
 						right={1}>
 					<FaCircle
-						
 						size={"20px"}
 						color={"white"}
 					/>
 				</Box>
 				<Box
+					
 					position={"absolute"}
 					top={-1.}
 					right={2}
