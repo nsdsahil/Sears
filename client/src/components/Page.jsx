@@ -3,8 +3,12 @@ import { CartProvider, useCart } from "react-use-cart";
 import { Button, Heading, Text, Flex } from "@chakra-ui/react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import  useRazorpay  from "react-razorpay";
+
+
 
 function Cart() {
+	const [Razorpay] = useRazorpay();
 	const {
 		isEmpty,
 		emptyCart,
@@ -28,11 +32,11 @@ function Cart() {
 		});
 		var options = {
 			key: "rzp_test_lDKz5Mp6nAXD0O",
-			amount: order.amount,
-			currency: order.currency,
-			name: "snapdeal",
+			amount: order.amount,			
+			currency: order.currency,	
+			name: "Sears",
 			description: "Test Transaction",
-			image: snapdeal,
+			image: "https://id.shld.net/resources/h4s27/login/sears/img/sears_TM_logo.png",
 			order_id: order.id,
 			callback_url: "https://sears-40h2.onrender.com/payment/verification",
 			prefill: {
@@ -47,8 +51,11 @@ function Cart() {
 				color: "#3399CC",
 			},
 		};
-		var rzp1 = new window.Razorpay(options);
+		console.log(window.Razorpay);
+		var rzp1 = new Razorpay(options);
 		rzp1.open();
+
+
 		console.log(order);
 	};
 

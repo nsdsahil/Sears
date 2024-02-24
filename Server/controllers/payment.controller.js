@@ -40,7 +40,7 @@ paymentRouter.post("/verification",async (req, res) => {
     .update(body_data).digest("hex");
 
     const isValid=expect===razorpay_signature;
-    res.redirect(`https://sears-clone.vercel.app/paymentSuccess`);
+    res.redirect(`https://sears-clone.vercel.app`);
 
 })
 module.exports = paymentRouter;
