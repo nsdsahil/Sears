@@ -3,6 +3,7 @@
 ![Sears Logo](https://cdn.cookielaw.org/logos/cc9a8230-03c2-46ab-afe1-51ced9dc71c0/71ac662c-41e9-44cb-8c9b-44652e593b65/c8c533ef-64bd-4950-af09-34e70e96b405/sears_logo.png)
 
 Sears is a modern and sophisticated ecommerce platform built using the MERN stack (MongoDB, Express.js, React.js, Node.js). With Sears, you can create, manage, and scale your online store effortlessly. Whether you're a small business owner or an enterprise-level company, Sears provides you with the tools you need to succeed in the digital marketplace.
+ Visit the deployed site at [www.sears.com](https://sears-clone.vercel.app/)
 
 ## Features
 
@@ -56,7 +57,7 @@ To run Sears locally, follow these steps:
 
 ## Usage
 
-- Visit the deployed site at [www.sears.com](https://www.sears.com)
+- Visit the deployed site at [www.sears.com](https://sears-clone.vercel.app/)
 - Sign up for an account or log in if you're an existing user.
 - Browse through the wide range of products available.
 - Add products to your cart and proceed to checkout.
