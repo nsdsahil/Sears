@@ -13,7 +13,7 @@ dotenv.config();
 
 app.use(
 	cors({
-		origin:["http://127.0.0.1:5173","https://sears-clone.vercel.app"],
+		origin:["http://127.0.0.1:5173","https://sears-clone.vercel.app","https://electro-mart-lime.vercel.app/"],
 		credentials:true
 	})
 );

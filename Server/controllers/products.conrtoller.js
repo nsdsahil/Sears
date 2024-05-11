@@ -18,7 +18,6 @@ ProductRouter.get("/:productId/hotDeals",auth, async (req, res) => {
 	try {
 		const productId = req.params.productId;
 		const product = await Product.findById(productId);
-
 		if (!product) {
 			return res.status(404).json({ message: "Product not found" });
 		}
