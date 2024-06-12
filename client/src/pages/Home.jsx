@@ -27,7 +27,8 @@ const Home = () => {
   const [products, setProducts] = React.useState([]);
   const [products2, setProducts2] = React.useState([]);
   React.useEffect(() => {
-	    ReactGA.pageview(window.location.pathname + window.location.search);
+	    
+		ReactGA.send({ hitType: "pageview", page: window.location.pathname + window.location.search });
 		async function getProducts() {
 			try {
 				const res = await fetch("https://sears-40h2.onrender.com/products/65c5d513216f075027acbf8e/tvElectronics");
