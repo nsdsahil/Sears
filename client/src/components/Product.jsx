@@ -27,6 +27,7 @@ import PaginatedItems from "../components/Pagination";
 import ReactStars from "react-rating-stars-component";
 import ReactGA from 'react-ga4';
 import SearchBar from "../components/SearchBar";
+import mixpanel from 'mixpanel-browser';
 
 /**
 * @author
@@ -51,6 +52,10 @@ export const Product = ({product}) => {
 		product_name: product["custom-div-title"],
 		product_id: product._id,
 	  });
+	  mixpanel.track('Product Clicked', {
+		product_name: product["custom-div-title"],
+		product_id: product._id,
+	  })
 	};
 
   

@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "mixpanel-browser": "^2.52.0",
     "react-ga4": "^2.1.0"
   }
 }

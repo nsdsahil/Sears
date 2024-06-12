@@ -16,6 +16,7 @@ import Register from "./pages/Register";
 import { HotDeals } from "./pages/HotDeals";
 import Verify from "./pages/Verify";
 import { useEffect } from "react";
+import mixpanel from 'mixpanel-browser';	
 import ReactGA from 'react-ga4';	
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
 			debug_mode: true,
 		});
 		ReactGA.send('pageview');
+		mixpanel.init('ed6f22bee292c3f5a5735c4cd059f1da', {debug: true});
 	  }, []);
 
 	return (
