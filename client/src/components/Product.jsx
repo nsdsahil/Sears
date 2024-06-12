@@ -46,11 +46,17 @@ export const Product = ({product}) => {
 	const handleClick = (product) => {
 		console.log("clicked");
 	  ReactGA.event({
-		category: 'Add to Cart',
+		category: 'Product',
 		action: 'Click',
 		label: 'Product Page',
 		product_name: product["custom-div-title"],
 		product_id: product._id,
+	  });
+	  ReactGA.event('Add to Cart', {
+		transaction_id: product._id,
+		product_name: product["custom-div-title"],
+		value: product["money 2"],
+		currency: 'USD',
 	  });
 	  mixpanel.track('Product Clicked', {
 		product_name: product["custom-div-title"],
