@@ -24,9 +24,6 @@ function App() {
 		ReactGA.send('pageview');
 	  }, []);
 
-   
-
-
 	return (
 		<>
 			<Navbar />

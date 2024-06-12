@@ -15,6 +15,7 @@ import ProductSlider2 from '../sections/ProductSlider2'
 import { bannerImages } from '../assets/image'
 import {Flex} from "@chakra-ui/react"
 import { AdvertiseBanner } from '../components/AdvertiseBanner'
+import ReactGA from 'react-ga4';
 
 
 /**
@@ -26,6 +27,7 @@ const Home = () => {
   const [products, setProducts] = React.useState([]);
   const [products2, setProducts2] = React.useState([]);
   React.useEffect(() => {
+	    ReactGA.pageview(window.location.pathname + window.location.search);
 		async function getProducts() {
 			try {
 				const res = await fetch("https://sears-40h2.onrender.com/products/65c5d513216f075027acbf8e/tvElectronics");

@@ -43,6 +43,7 @@ export const Product = ({product}) => {
 };
 
 	const handleClick = (product) => {
+		console.log("clicked");
 	  ReactGA.event({
 		category: 'Button',
 		action: 'Click',
