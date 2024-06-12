@@ -25,6 +25,7 @@ import {
 import PaginatedItems from "../components/Pagination";
 
 import ReactStars from "react-rating-stars-component";
+import ReactGA from 'react-ga4';
 import SearchBar from "../components/SearchBar";
 
 /**
@@ -40,6 +41,18 @@ export const Product = ({product}) => {
     secondary: "white",
     tertiary: "#41e0d0",
 };
+
+	const handleClick = (product) => {
+	  ReactGA.event({
+		category: 'Button',
+		action: 'Click',
+		label: 'Track Button',
+		product_name: product["custom-div-title"],
+	  });
+	};
+
+  
+
   return(
     <Box
 			borderRadius={"10px"}
@@ -74,7 +87,7 @@ export const Product = ({product}) => {
 										size={24}
 										activeColor="#ffd700"
 									/>
-									<Button key={product.id} onClick={() =>{addItem(product); setIsAdded(true)} }color={color.secondary} bgColor={color.primary}>
+									<Button key={product.id} onClick={() =>{addItem(product); setIsAdded(true); handleClick(product)} }color={color.secondary} bgColor={color.primary}>
 										{isAdded ? "Add more" : "Add to cart"}
 									</Button>
 								</Box>

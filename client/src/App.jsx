@@ -15,7 +15,18 @@ import {Login} from "./pages/Login";
 import Register from "./pages/Register";
 import { HotDeals } from "./pages/HotDeals";
 import Verify from "./pages/Verify";
+import { useEffect } from "react";
+import ReactGA from 'react-ga4';	
 function App() {
+
+	useEffect(() => {
+		ReactGA.initialize('G-GYXYYDMBNW');
+		ReactGA.send('pageview');
+	  }, []);
+
+   
+
+
 	return (
 		<>
 			<Navbar />
