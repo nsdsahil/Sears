@@ -20,7 +20,9 @@ import ReactGA from 'react-ga4';
 function App() {
 
 	useEffect(() => {
-		ReactGA.initialize('G-GYXYYDMBNW');
+		ReactGA.initialize('G-GYXYYDMBNW', {
+			debug_mode: true,
+		});
 		ReactGA.send('pageview');
 	  }, []);
 
