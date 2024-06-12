@@ -45,11 +45,13 @@ export const Product = ({product}) => {
 	const handleClick = (product) => {
 		console.log("clicked");
 	  ReactGA.event({
-		category: product["custom-div-title"],
+		category: "Product",
 		action: 'Click',
 		label: 'Track Button',
-		product_name: product["custom-div-title"],
-		price: product["money 2"],
+		custom_params: {
+			product_name: product["custom-div-title"],
+			product_id: product._id,
+		  }
 	  });
 	};
 
